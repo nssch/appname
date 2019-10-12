@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>じゃんけん</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body class="body">
+    <header class="title_area">
+        <div>
+            <img src="image/kumo3.png" alt="">
+        </div>
+        <div>
+            <h1 class="title">JANKEN</h1>
+        </div>
+        <div>
+            <img src="image/kumo4.png" alt="">
+        </div>
+    </header>
+    <main>
+        <div class="btn_area">
+            <ul class="list">
+                <li id="abtn"><img class="btn" src="image/sponge (2).png" alt=""></li>
+                <li id="bbtn"><img class="btn" src="image/hasami (2).png" alt=""></li>
+                <li id="cbtn"><img class="btn" src="image/hi (3).png" alt=""></li>
+                <li id="dbtn"><img class="btn" src="image/isi (2).png" alt=""></li>
+                <li id="ebtn"><img class="btn" src="image/mizu (2).png" alt=""></li>
+                <li id="fbtn"><img class="btn" src="image/kuuki (2).png" alt=""></li>
+                <li id="gbtn"><img class="btn" src="image/kami (2).png" alt=""></li>
+            </ul>
+        </div>
+
+        <div class="vs_area">
+            <div class="com_area">
+                <div id="com_hand">COMPUTER</div>
+            </div>
+
+            <div class="jdg_area">
+                <div id="judge">RESULT</div>
+            </div>
+        </div>
+
+
+
+    </main>
+
+    <footer></footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            //ここから記述
+            const result = ["sponge", "scissors", "fire", "rock", "water", "air", "paper"]
+            $("#abtn").on("click", function () {
+                //alert("spongeを選択")
+                //自分の手がsponge
+                let random = Math.floor(Math.random() * 7);
+                //0sponge,1scissors,2fire,3rock,4water,5air",6paper
+                //コンピュータの手
+                $("#com_hand").html('<p>COMPUTER</p>' + ' ' + result[random]);
+                if (random == 0) {  //spongeはあいこ
+                    $("#judge").html('<p>DRAW</p>');
+                } else if (random == 4 || random == 5 || random == 6) {  //water,air,paperには勝ち
+                    $("#judge").html('<p>★You WIN★</p>');
+                } else if (random == 1 || random == 2 || random == 3) {  //scissors,fire,rockには負け
+                    $("#judge").html('<p>You LOSE</p>');
+                }
+
+
+            });
+
+
+
+
+            $("#bbtn").on("click", function () {
+                //alert("scissorsを選択")
+                //自分の手がscissors
+                let random = Math.floor(Math.random() * 7);
+                //0sponge,1scissors,2fire,3rock,4water,5air",6paper
+                //コンピュータの手
+                $("#com_hand").html('<p>COMPUTER</p>' + ' ' + result[random]);
+                if (random == 1) {  //scissorsはあいこ
+                    $("#judge").html('<p>DRAW</p>');
+                } else if (random == 0 || random == 5 || random == 6) {  //sponge,air,paperには勝ち
+                    $("#judge").html('<p>★You WIN★</p>');
+                } else if (random == 4 || random == 2 || random == 3) {  //water,fire,rockには負け
+                    $("#judge").html('<p>You LOSE</p>');
+                }
+
+            });
+
+            $("#cbtn").on("click", function () {
+                //alert("fireを選択")
+                //自分の手がfire
+                let random = Math.floor(Math.random() * 7);
+                //0sponge,1scissors,2fire,3rock,4water,5air",6paper
+                //コンピュータの手
+                $("#com_hand").html('<p>COMPUTER</p>' + ' ' + result[random]);
+                if (random == 2) {  //fireはあいこ
+                    $("#judge").html('<p>DRAW</p>');
+                } else if (random == 0 || random == 1 || random == 6) {  //scissors,sponge,paperには勝ち
+                    $("#judge").html('<p>★You WIN★</p>');
+                } else if (random == 4 || random == 5 || random == 3) {  //air,water,rockには負け
+                    $("#judge").html('<p>You LOSE</p>');
+                }
+
+            });
+
+            $("#dbtn").on("click", function () {
+                //alert("rockを選択")
+                //自分の手がrock
+                let random = Math.floor(Math.random() * 7);
+                //0sponge,1scissors,2fire,3rock,4water,5air",6paper
+                //コンピュータの手
+                $("#com_hand").html('<p>COMPUTER</p>' + ' ' + result[random]);
+                if (random == 3) {  //rockはあいこ
+                    $("#judge").html('<p>DRAW</p>');
+                } else if (random == 0 || random == 1 || random == 2) {  //fire,scissors,spongeには勝ち
+                    $("#judge").html('<p>★You WIN★</p>');
+                } else if (random == 4 || random == 5 || random == 6) {  //water,air,paperには負け
+                    $("#judge").html('<p>You LOSE</p>');
+                }
+
+            });
+
+            $("#ebtn").on("click", function () {
+                //alert("waterを選択")
+                //自分の手がwater
+                let random = Math.floor(Math.random() * 7);
+                //0sponge,1scissors,2fire,3rock,4water,5air",6paper
+                //コンピュータの手
+                $("#com_hand").html('<p>COMPUTER</p>' + ' ' + result[random]);
+                if (random == 4) {  //waterはあいこ
+                    $("#judge").html('<p>DRAW</p>');
+                } else if (random == 1 || random == 2 || random == 3) {  //scissors,fire,rockには勝ち
+                    $("#judge").html('<p>★You WIN★</p>');
+                } else if (random == 0 || random == 5 || random == 6) {  //sponge,air,paperには負け
+                    $("#judge").html('<p>You LOSE</p>');
+                }
+
+            });
+
+            $("#fbtn").on("click", function () {
+                //alert("airを選択")
+                //自分の手がair
+                let random = Math.floor(Math.random() * 7);
+                //0sponge,1scissors,2fire,3rock,4water,5air",6paper
+                //コンピュータの手
+                $("#com_hand").html('<p>COMPUTER</p>' + ' ' + result[random]);
+                if (random == 5) {  //airはあいこ
+                    $("#judge").html('<p>DRAW</p>');
+                } else if (random == 2 || random == 3 || random == 4) {  //water,fire,rockには勝ち
+                    $("#judge").html('<p>★You WIN★</p>');
+                } else if (random == 0 || random == 1 || random == 6) {  //scissors,sponge,paperには負け
+                    $("#judge").html('<p>You LOSE</p>');
+                }
+
+            });
+
+            $("#gbtn").on("click", function () {
+                //alert("paperを選択")
+                //自分の手がpaper
+                let random = Math.floor(Math.random() * 7);
+                //0sponge,1scissors,2fire,3rock,4water,5air",6paper
+                //コンピュータの手
+                $("#com_hand").html('<p>COMPUTER</p>' + ' ' + result[random]);
+                if (random == 6) {  //paperはあいこ
+                    $("#judge").html('<p>DRAW</p>');
+                } else if (random == 3 || random == 5 || random == 4) {  //water,air,rockには勝ち
+                    $("#judge").html('<p>★You WIN★</p>');
+                } else if (random == 0 || random == 2 || random == 1) {  //scissors,fire,spongeには負け
+                    $("#judge").html('<p>You LOSE</p>');
+                }
+
+            });
+
+            //結果の表示変更
+            $("#judge").css('color', '#ffffff');
+            $("#judge").css('font-size', '60px');
+            $("#judge").css('font-family', 'fantasy');
+            $("#judge").css('textAlign', 'center');
+            $("#judge").css('textShadow', '1px 1px 0 #000080');
+
+
+
+
+            //コンピュータの手
+            $("#com_hand").css('color', '#ffffff');
+            $("#com_hand").css('font-size', '36px');
+            $("#com_hand").css('font-family', 'fantasy');
+            $("#com_hand").css('textShadow', '1px 1px 0 #000080');
+
+
+
+
+
+
+        });
+
+        $(function () {
+            //ボタンを交互に連続してアニメーションさせる
+            setTimeout('anime()');
+        });
+        //animeの動きを設定
+        function anime() {
+            $('#abtn')
+                .animate({ 'marginTop': '10px' }, 1500)
+                .animate({ 'marginTop': '-10px' }, 1500);
+            setTimeout('anime()', 3000);
+
+            $('#cbtn')
+                .animate({ 'marginTop': '10px' }, 1500)
+                .animate({ 'marginTop': '-10px' }, 1500);
+            setTimeout('anime()', 3000);
+
+            $('#ebtn')
+                .animate({ 'marginTop': '10px' }, 1500)
+                .animate({ 'marginTop': '-10px' }, 1500);
+            setTimeout('anime()', 3000);
+
+            $('#gbtn')
+                .animate({ 'marginTop': '10px' }, 1500)
+                .animate({ 'marginTop': '-10px' }, 1500);
+            setTimeout('anime()', 3000);
+
+            $('#bbtn')
+                .animate({ 'marginTop': '-10px' }, 1500)
+                .animate({ 'marginTop': '10px' }, 1500);
+            setTimeout('anime()', 3000);
+
+            $('#dbtn')
+                .animate({ 'marginTop': '-10px' }, 1500)
+                .animate({ 'marginTop': '10px' }, 1500);
+            setTimeout('anime()', 3000);
+
+            $('#fbtn')
+                .animate({ 'marginTop': '-10px' }, 1500)
+                .animate({ 'marginTop': '10px' }, 1500);
+            setTimeout('anime()', 3000);
+
+        }
+
+        
+
+
+    </script>
+
+
+</body>
+
+</html>
